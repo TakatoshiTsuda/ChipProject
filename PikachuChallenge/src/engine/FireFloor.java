@@ -10,6 +10,7 @@ package engine;
  *
  * @author i13067
  */
-public class FireFloor {
-    
+public class FireFloor extends Floor
+{
+    private final String imgFire = "img\\Fire.jpg";
 }

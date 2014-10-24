@@ -10,7 +10,6 @@ package engine;
  *
  * @author i13067
  */
-public class Barrier extends Floor
-{
-    private final String imgBarrier = "img\\Rock.jpg";
+class Floor {
+    
 }

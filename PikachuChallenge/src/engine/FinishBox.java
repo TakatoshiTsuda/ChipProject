@@ -10,6 +10,7 @@ package engine;
  *
  * @author i13067
  */
-public class FinishBox {
-    
+public class FinishBox extends Floor
+{
+    private final String imgFinishBox = "img\\Gym.jpg";
 }

@@ -10,6 +10,7 @@ package engine;
  *
  * @author i13067
  */
-public class Wall {
-    
+public class Wall extends Floor
+{
+   private final String imgWall = "img\\Wall.jpg"; 
 }

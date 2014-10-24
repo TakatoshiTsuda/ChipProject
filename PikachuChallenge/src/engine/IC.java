@@ -10,6 +10,7 @@ package engine;
  *
  * @author i13067
  */
-public class IC {
-    
+public class IC extends Floor
+{
+    private final String imgIC = "img\\PokeBall.jpg";
 }
