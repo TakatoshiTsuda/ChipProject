@@ -6,10 +6,27 @@
 
 package engine;
 
+import java.awt.Image;
+import java.awt.Point;
+
 /**
  *
  * @author i13067
  */
-public class Elements {
-    
+public abstract class Elements {
+    protected Image imgData;
+    protected LoadImage img;
+    protected Point position;
+    public Elements()
+    {
+    	this.loadImage(null);
+    }
+    protected void SetPos(Point pos)
+    {
+    	this.position=pos;
+    }
+    private void loadImage(String imgUrl)
+    {
+        img.loadImageData(imgUrl);
+    }
 }
