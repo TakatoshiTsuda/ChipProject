@@ -63,4 +63,9 @@ public class Character extends Elements{
         }
         return res;
     }
+    public void walk()
+    {
+        
+    }
+    
 }
