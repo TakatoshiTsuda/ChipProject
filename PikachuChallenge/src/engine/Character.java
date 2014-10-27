@@ -38,21 +38,19 @@ public class Character extends Elements{
     }
     public void loadImage(String direction)
     {
-    	if(direction.equals("left"))
-        {
-        	imgData=charLeft;
-        }
-        else if(direction.equals("right"))
-        {
-        	imgData=charRight;
-        }
-        else if(direction.equals("up"))
-        {
-        	imgData=charUp;
-        }
-        else
-        {
-        	imgData=charDown;
+        switch (direction) {
+            case "left":
+                imgData=charLeft;
+                break;
+            case "right":
+                imgData=charRight;
+                break;
+            case "up":
+                imgData=charUp;
+                break;
+            default:
+                imgData=charDown;
+                break;
         }
     }
     
@@ -81,23 +79,27 @@ public class Character extends Elements{
     {
         if(isDeadStatus()!=true)
         {
-            if(direction=="left")
-            {
-                this.position.setLocation(this.position.getX()-1, this.position.getY());
+            switch (direction) {
+                case "left":
+                    this.position.setLocation(this.position.getX()-1, this.position.getY());
+                    break;
+                case "right":
+                    this.position.setLocation(this.position.getX()+1, this.position.getY());
+                    break;
+                case "up":
+                    this.position.setLocation(this.position.getX(), this.position.getY()+1);
+                    break;
+                default:
+                    this.position.setLocation(this.position.getX(), this.position.getY()-1);
+                    break;
             }
-            else if(direction=="right")
-            {
-                this.position.setLocation(this.position.getX()+1, this.position.getY());
-            }
-            else if(direction=="up")
-            {
-                this.position.setLocation(this.position.getX(), this.position.getY()+1);
-            }
-            else
-            {
-                this.position.setLocation(this.position.getX(), this.position.getY()-1);
-            }
+            loadImage(direction);
+            setDirection(direction);
         }
+    }
+
+    public void setDeadStatus(boolean deadStatus) {
+        this.deadStatus = deadStatus;
     }
 
     public boolean isDeadStatus() {

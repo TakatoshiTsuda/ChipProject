@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class LoadImage extends JPanel{
     public static final int CANVAS_WIDTH = 640;
-    public static final int CANVAS_HEIGHT = 480;
+    public static final int CANVAS_HEIGHT = 640;
     //jangan lupa masukin gambar di folder src/img!!!
     private BufferedImage img;
       

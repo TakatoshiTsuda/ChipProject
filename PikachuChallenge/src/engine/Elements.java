@@ -29,4 +29,12 @@ public abstract class Elements {
     {
         img.loadImageData(imgUrl);
     }
+    protected double getXPos()
+    {
+        return position.getX();
+    }
+    protected double getYPos()
+    {
+        return position.getY();
+    }
 }

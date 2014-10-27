@@ -6,11 +6,17 @@
 
 package engine;
 
+import java.awt.Image;
+
 /**
  *
  * @author i13067
  */
 public class Wall extends Floor
 {
-   private final String imgWall = "img\\Wall.jpg"; 
+    
+   public Wall()
+   {
+       imgData=img.loadImageData("img\\Wall.jpg");
+   }
 }

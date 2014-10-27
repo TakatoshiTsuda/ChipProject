@@ -12,5 +12,9 @@ package engine;
  */
 public class Barrier extends Floor
 {
-    private final String imgBarrier = "img\\Rock.jpg";
+    
+    public Barrier()
+    {
+        imgData=img.loadImageData("img\\Rock.jpg");
+    }
 }

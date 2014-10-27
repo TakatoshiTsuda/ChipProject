@@ -10,6 +10,12 @@ package engine;
  *
  * @author i13067
  */
-class Floor {
+class Floor extends Elements{
+
+    
+    public Floor()
+    {
+        imgData=img.loadImageData("img\\floor.jpg");
+    }
     
 }

@@ -12,5 +12,10 @@ package engine;
  */
 public class FireFloor extends Floor
 {
-    private final String imgFire = "img\\Fire.jpg";
+    
+    
+    public FireFloor()
+    {
+        imgData=img.loadImageData("img\\Fire.jpg");
+    }
 }

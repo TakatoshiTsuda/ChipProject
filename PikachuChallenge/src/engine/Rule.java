@@ -12,8 +12,14 @@ package engine;
  */
 public class Rule {
     private Object[][] dungeon;
+    private int levelStatus;
     public Rule()
     {
     	this.dungeon=new Object[11][11];
+        levelStatus=1;
+    }
+    public void LoadLevel(Object[][] level)
+    {
+        this.dungeon=level;
     }
 }

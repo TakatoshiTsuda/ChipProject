@@ -12,5 +12,10 @@ package engine;
  */
 public class FinishBox extends Floor
 {
-    private final String imgFinishBox = "img\\Gym.jpg";
+    
+    public FinishBox()
+    {
+        imgData=img.loadImageData("img\\Gym.jpg");
+    }
+    
 }

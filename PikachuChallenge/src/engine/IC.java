@@ -12,5 +12,10 @@ package engine;
  */
 public class IC extends Floor
 {
-    private final String imgIC = "img\\PokeBall.jpg";
+    
+    public IC()
+    {
+        imgData=img.loadImageData("img\\PokeBall.jpg");
+    }
+    
 }
