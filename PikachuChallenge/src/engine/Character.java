@@ -6,16 +6,23 @@
 
 package engine;
 
+import java.awt.Image;
+
 /**
  *
  * @author i13067
  */
 public class Character extends Elements{
     
-    private final String imgCharUp = "img\\PikachuUp.jpg";
-    private final String imgCharDown = "img\\PikachuDown.jpg";
-    private final String imgCharLeft = "img\\PikachuLeft.jpg";
-    private final String imgCharRight = "img\\PikachuRight.jpg";
+    //private final String imgCharUp = "img\\PikachuUp.jpg";
+    //private final String imgCharDown = "img\\PikachuDown.jpg";
+   // private final String imgCharLeft = "img\\PikachuLeft.jpg";
+   // private final String imgCharRight = "img\\PikachuRight.jpg";
+    //load image sekaligus di constructor, biar proses load image lebih cepat daripada load image tiap karakter bergerak
+    private final Image charUp;
+    private final Image charDown;
+    private final Image charLeft;
+    private final Image charRight;
     
     private String direction; //character sedang menghadap ke arah mana? atas, bawah, kanan, kiri? bukan buat jalan
     private boolean deadStatus;
@@ -24,25 +31,28 @@ public class Character extends Elements{
     	this.direction="left";
         loadImage(direction);
         deadStatus=false;
-        
+        charUp=img.loadImageData("img\\PikachuUp.jpg");
+        charDown=img.loadImageData("img\\PikachuDown.jpg");
+        charLeft=img.loadImageData("img\\PikachuLeft.jpg");
+        charRight=img.loadImageData("img\\PikachuRight.jpg");
     }
     public void loadImage(String direction)
     {
     	if(direction.equals("left"))
         {
-        	imgData=img.loadImageData(imgCharLeft);
+        	imgData=charLeft;
         }
         else if(direction.equals("right"))
         {
-        	imgData=img.loadImageData(imgCharRight);
+        	imgData=charRight;
         }
         else if(direction.equals("up"))
         {
-        	imgData=img.loadImageData(imgCharUp);
+        	imgData=charUp;
         }
         else
         {
-        	imgData=img.loadImageData(imgCharDown);
+        	imgData=charDown;
         }
     }
     
@@ -63,9 +73,35 @@ public class Character extends Elements{
         }
         return res;
     }
-    public void walk()
+    /**
+     * Digunakan untuk karakter berjalan
+     * @param direction arah karakter berjalan
+     */
+    public void walk(String direction)
     {
-        
+        if(isDeadStatus()!=true)
+        {
+            if(direction=="left")
+            {
+                this.position.setLocation(this.position.getX()-1, this.position.getY());
+            }
+            else if(direction=="right")
+            {
+                this.position.setLocation(this.position.getX()+1, this.position.getY());
+            }
+            else if(direction=="up")
+            {
+                this.position.setLocation(this.position.getX(), this.position.getY()+1);
+            }
+            else
+            {
+                this.position.setLocation(this.position.getX(), this.position.getY()-1);
+            }
+        }
+    }
+
+    public boolean isDeadStatus() {
+        return deadStatus;
     }
     
 }
