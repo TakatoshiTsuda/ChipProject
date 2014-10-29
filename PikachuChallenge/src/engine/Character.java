@@ -19,37 +19,39 @@ public class Character extends Elements{
    // private final String imgCharLeft = "img\\PikachuLeft.jpg";
    // private final String imgCharRight = "img\\PikachuRight.jpg";
     //load image sekaligus di constructor, biar proses load image lebih cepat daripada load image tiap karakter bergerak
-    private final Image charUp;
-    private final Image charDown;
-    private final Image charLeft;
-    private final Image charRight;
+    //private final Image charUp;
+    //private final Image charDown;
+    //private final Image charLeft;
+    //private final Image charRight;
     
     private String direction; //character sedang menghadap ke arah mana? atas, bawah, kanan, kiri? bukan buat jalan
     private boolean deadStatus;
     public Character()
     {
+        test='x';
+        type="character";
     	this.direction="left";
         loadImage(direction);
         deadStatus=false;
-        charUp=img.loadImageData("img\\PikachuUp.jpg");
-        charDown=img.loadImageData("img\\PikachuDown.jpg");
-        charLeft=img.loadImageData("img\\PikachuLeft.jpg");
-        charRight=img.loadImageData("img\\PikachuRight.jpg");
+        //charUp=img.loadImageData("img\\PikachuUp.jpg");
+        //charDown=img.loadImageData("img\\PikachuDown.jpg");
+        //charLeft=img.loadImageData("img\\PikachuLeft.jpg");
+        //charRight=img.loadImageData("img\\PikachuRight.jpg");
     }
     public void loadImage(String direction)
     {
         switch (direction) {
             case "left":
-                imgData=charLeft;
+                //imgData=charLeft;
                 break;
             case "right":
-                imgData=charRight;
+                //imgData=charRight;
                 break;
             case "up":
-                imgData=charUp;
+                //imgData=charUp;
                 break;
             default:
-                imgData=charDown;
+                //imgData=charDown;
                 break;
         }
     }

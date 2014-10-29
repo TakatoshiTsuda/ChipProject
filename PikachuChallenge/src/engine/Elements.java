@@ -14,12 +14,16 @@ import java.awt.Point;
  * @author i13067
  */
 public abstract class Elements {
-    protected Image imgData;
-    protected LoadImage img;
+    //protected Image imgData;
+    //protected LoadImage img;
     protected Point position;
+    //for test purpose only
+    protected char test;
+    protected String type;
+    
     public Elements()
     {
-    	this.loadImage(null);
+    	//this.loadImage(null);
     }
     protected void SetPos(Point pos)
     {
@@ -27,7 +31,7 @@ public abstract class Elements {
     }
     private void loadImage(String imgUrl)
     {
-        img.loadImageData(imgUrl);
+        //img.loadImageData(imgUrl);
     }
     protected double getXPos()
     {
@@ -37,4 +41,12 @@ public abstract class Elements {
     {
         return position.getY();
     }
+    public char getTest() {
+        return test;
+    }
+    public String getType() {
+        return type;
+    }
+    
+    
 }

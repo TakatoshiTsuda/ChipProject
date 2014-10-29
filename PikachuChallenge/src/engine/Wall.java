@@ -17,6 +17,8 @@ public class Wall extends Floor
     
    public Wall()
    {
-       imgData=img.loadImageData("img\\Wall.jpg");
+       //imgData=img.loadImageData("img\\Wall.jpg");
+       test='H';
+       type="wall";
    }
 }

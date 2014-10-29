@@ -5,18 +5,29 @@
  */
 
 package gui;
-
+import engine.Rule;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import level.level1;
 /**
  *
  * @author i13067
  */
 public class PikaChallengeGUI extends javax.swing.JFrame {
-
+    private int dir=6;
+    private Rule rule;
     /**
      * Creates new form PikaChallengeGUI
      */
     public PikaChallengeGUI() {
         initComponents();
+        rule=new Rule();
+        level1 level=new level1();
+        level.createLevel();
+        rule.LoadLevel(level.getLevel(), level.getIcTotal());
+        jScrollPane1.setAutoscrolls(false);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
     }
 
     /**
@@ -28,21 +39,74 @@ public class PikaChallengeGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        testGameField = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
+
+        testGameField.setEditable(false);
+        testGameField.setColumns(20);
+        testGameField.setRows(5);
+        testGameField.setAutoscrolls(false);
+        testGameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                testGameFieldKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(testGameField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+            if(evt.getKeyCode()==KeyEvent.VK_LEFT)
+            {
+                this.dir=4;
+            }
+            else if(evt.getKeyCode()==KeyEvent.VK_RIGHT)
+            {
+                this.dir=6;
+            }
+            else if(evt.getKeyCode()==KeyEvent.VK_UP)
+            {
+                this.dir=2;
+            }
+            else if(evt.getKeyCode()==KeyEvent.VK_DOWN)
+            {
+                this.dir=8;
+            }
+            rule.walk(dir);
+            testGameField.setText(rule.toString());
+            
+            
+    }//GEN-LAST:event_formKeyPressed
+
+    private void testGameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_testGameFieldKeyPressed
+        this.formKeyPressed(evt);
+    }//GEN-LAST:event_testGameFieldKeyPressed
 
     /**
      * @param args the command line arguments
@@ -80,5 +144,7 @@ public class PikaChallengeGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea testGameField;
     // End of variables declaration//GEN-END:variables
 }
