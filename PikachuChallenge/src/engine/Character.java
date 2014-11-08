@@ -28,7 +28,7 @@ public class Character extends Elements{
     private boolean deadStatus;
     public Character()
     {
-        test='x';
+        test='C';
         type="character";
     	this.direction="left";
         loadImage(direction);

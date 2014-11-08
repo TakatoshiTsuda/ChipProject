@@ -28,6 +28,7 @@ public class PikaChallengeGUI extends javax.swing.JFrame {
         jScrollPane1.setAutoscrolls(false);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        testGameField.setText(rule.toString());
     }
 
     /**

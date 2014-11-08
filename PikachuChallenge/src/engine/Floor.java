@@ -16,7 +16,7 @@ public class Floor extends Elements{
     public Floor()
     {
         //imgData=img.loadImageData("img\\floor.jpg");
-        test='-';
+        test='O';
         type="floor";
     }
     

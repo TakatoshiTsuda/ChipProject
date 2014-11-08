@@ -39,46 +39,55 @@ public class Rule {
     {
         int x=(int)character.getXPos();
         int y=(int)character.getYPos();
+        Point pos;
         int nextX=x;
         int nextY=y;
         String dir="";
         switch(code)
         {
-            case 4:nextX=x-1;dir="left";
-            case 6:nextX=x+1;dir="right";
-            case 2:nextY=y-1;dir="up";
-            case 8:nextY=y+1;dir="down";
+            case 4:nextX=x-1;dir="left";break;
+            case 6:nextX=x+1;dir="right";break;
+            case 2:nextY=y-1;dir="up";break;
+            case 8:nextY=y+1;dir="down";break;
         }
-        if(character.isDeadStatus()!=true)
+        if(character.isDeadStatus()!=true&&winStatus!=true)
         {
-            if(dungeon[nextX][nextY].getType().equals("barrier"))
+            if(dungeon[nextY][nextX].getType().equals("wall")!=true)
             {
-                if(totalIC==0)
+                if(dungeon[nextY][nextX].getType().equals("barrier"))
                 {
-                    dungeon[nextX][nextY]=character;
+                    if(totalIC==0)
+                    {
+                        dungeon[nextY][nextX]=character;
+                        dungeon[y][x]=new Floor();
+                        pos=new Point(nextX,nextY);
+                        character.SetPos(pos);
+                    }
                 }
-            }
-            else if(dungeon[nextX][nextY].getType().equals("wall")!=true)
-            {
-                switch (dungeon[nextX][nextY].getType()) {
-                    case "fire":
-                        character.setDeadStatus(true);
-                        break;
-                    case "ic":
-                        totalIC--;
-                        break;
-                    case "finish":
-                        winStatus=true;
-                        break;
+                else
+                {
+                    switch (dungeon[nextY][nextX].getType()) 
+                    {
+                        case "fire":
+                            character.setDeadStatus(true);
+                            System.out.println("YOU LOSE");
+                            break;
+                        case "ic":
+                            totalIC--;
+                            break;
+                        case "finish":
+                            winStatus=true;
+                            System.out.println("YOU WIN");
+                            break;
+                    }
+                    character.walk(dir);
+                    dungeon[nextY][nextX]=character;
+                    dungeon[y][x]=new Floor();
+                    pos=new Point(nextX,nextY);
+                    character.SetPos(pos);
                 }
-                character.walk(dir);
-                dungeon[nextX][nextY]=character;
-                dungeon[x][y]=new Floor();
-                
             }
         }
-        
-        
     }
     public String toString()
     {

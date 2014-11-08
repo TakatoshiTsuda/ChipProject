@@ -17,6 +17,6 @@ public class Barrier extends Floor
     {
         //imgData=img.loadImageData("img\\Rock.jpg");
         type="barrier";
-        test='|';
+        test='B';
     }
 }
