@@ -3,22 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package engine;
 
 /**
  *
- * @author i13067
+ * @author maudynur
  */
-public class FireFloor extends Floor
-{
-    
-    
-    public FireFloor()
-    {
-        //imgData=img.loadImageData("img\\Fire.jpg");
-        test='W';
-        type="fire";
+public class WaterShoes extends Shoes{
+
+    @Override
+    public void setStatus(boolean status) {
         
     }
+    
 }
