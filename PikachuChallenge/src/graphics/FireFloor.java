@@ -4,20 +4,21 @@
  * and open the template in the editor.
  */
 
-package engine;
+package graphics;
 
 /**
  *
  * @author i13067
  */
-public class IC extends Floor
+public class FireFloor extends Floor
 {
     
-    public IC()
-    {
-        //imgData=img.loadImageData("img\\PokeBall.jpg");
-        test='T';
-        type="ic";
-    }
     
+    public FireFloor()
+    {
+        //imgData=img.loadImageData("img\\Fire.jpg");
+        test='W';
+        type="fire";
+        
+    }
 }

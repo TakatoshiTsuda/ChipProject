@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package engine;
+package graphics;
 
 import java.awt.Image;
 import java.awt.Point;
@@ -25,7 +25,7 @@ public abstract class Elements {
     {
     	//this.loadImage(null);
     }
-    protected void SetPos(Point pos)
+    public void SetPos(Point pos)
     {
     	this.position=pos;
     }
@@ -33,11 +33,11 @@ public abstract class Elements {
     {
         //img.loadImageData(imgUrl);
     }
-    protected double getXPos()
+    public double getXPos()
     {
         return position.getX();
     }
-    protected double getYPos()
+    public double getYPos()
     {
         return position.getY();
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package engine;
+package graphics;
 
 /**
  *
@@ -11,8 +11,14 @@ package engine;
  */
 public class FireShoes extends Shoes{
 
+    public FireShoes()
+    {
+        test='X';
+        setShoesType();
+    }
     @Override
-    public void setStatus(boolean status) {
+    protected void setShoesType() {
+        this.shoesType="fire";
         
     }
     

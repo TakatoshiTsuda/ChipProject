@@ -4,20 +4,20 @@
  * and open the template in the editor.
  */
 
-package engine;
+package graphics;
 
 /**
  *
  * @author i13067
  */
-public class Floor extends Elements{
-
+public class FinishBox extends Floor
+{
     
-    public Floor()
+    public FinishBox()
     {
-        //imgData=img.loadImageData("img\\floor.jpg");
-        test='O';
-        type="floor";
+        //imgData=img.loadImageData("img\\Gym.jpg");
+        test='F';
+        type="finish";
     }
     
 }

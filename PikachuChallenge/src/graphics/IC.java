@@ -3,17 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package engine;
+
+package graphics;
 
 /**
  *
- * @author maudynur
+ * @author i13067
  */
-public class WaterShoes extends Shoes{
-
-    @Override
-    public void setStatus(boolean status) {
-        
+public class IC extends Floor
+{
+    
+    public IC()
+    {
+        //imgData=img.loadImageData("img\\PokeBall.jpg");
+        test='T';
+        type="ic";
     }
     
 }

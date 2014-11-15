@@ -1,24 +1,24 @@
+package graphics;
+
+
+import graphics.Floor;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package engine;
-
 /**
  *
- * @author i13067
+ * @author maudynur
  */
-public class FireFloor extends Floor
-{
+public class WaterFloor extends Floor{
     
-    
-    public FireFloor()
+    public WaterFloor()
     {
         //imgData=img.loadImageData("img\\Fire.jpg");
-        test='W';
-        type="fire";
+        test='A';
+        type="water";
         
     }
 }

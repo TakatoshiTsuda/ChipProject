@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package engine;
+package graphics;
 
 import java.awt.Image;
 
@@ -83,16 +83,16 @@ public class Character extends Elements{
         {
             switch (direction) {
                 case "left":
-                    this.position.setLocation(this.position.getX()-1, this.position.getY());
+                    //this.position.setLocation(this.position.getX()-1, this.position.getY());
                     break;
                 case "right":
-                    this.position.setLocation(this.position.getX()+1, this.position.getY());
+                    //this.position.setLocation(this.position.getX()+1, this.position.getY());
                     break;
                 case "up":
-                    this.position.setLocation(this.position.getX(), this.position.getY()+1);
+                    //this.position.setLocation(this.position.getX(), this.position.getY()+1);
                     break;
                 default:
-                    this.position.setLocation(this.position.getX(), this.position.getY()-1);
+                    //this.position.setLocation(this.position.getX(), this.position.getY()-1);
                     break;
             }
             loadImage(direction);

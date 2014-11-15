@@ -4,21 +4,19 @@
  * and open the template in the editor.
  */
 
-package engine;
-
-import java.awt.Image;
+package graphics;
 
 /**
  *
  * @author i13067
  */
-public class Wall extends Floor
+public class Barrier extends Floor
 {
     
-   public Wall()
-   {
-       //imgData=img.loadImageData("img\\Wall.jpg");
-       test='H';
-       type="wall";
-   }
+    public Barrier()
+    {
+        //imgData=img.loadImageData("img\\Rock.jpg");
+        type="barrier";
+        test='B';
+    }
 }
