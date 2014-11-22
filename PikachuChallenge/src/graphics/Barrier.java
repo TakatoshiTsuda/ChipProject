@@ -7,12 +7,14 @@
 package graphics;
 
 /**
- *
+ * Kelas yang merepresentasikan penghalang finish box pada game
  * @author i13067
  */
 public class Barrier extends Floor
 {
-    
+    /**
+     * Konstruktor untuk menentukan penghalang pada floor
+     */
     public Barrier()
     {
         //imgData=img.loadImageData("img\\Rock.jpg");

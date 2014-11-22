@@ -7,18 +7,18 @@
 package graphics;
 
 /**
- *
+ * Kelas untuk merepresentasikan lantai api pada game
  * @author i13067
  */
 public class FireFloor extends Floor
 {
-    
-    
+    /**
+     * Konstruktor untuk menentukan lantai api pada floor
+     */
     public FireFloor()
     {
         //imgData=img.loadImageData("img\\Fire.jpg");
         test='W';
         type="fire";
-        
     }
 }

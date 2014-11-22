@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package engine;
 
 import java.awt.Dimension;
@@ -15,16 +14,22 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
- *
+ * Kelas untuk me-load gambar ke dalam window/canvas
  * @author i13067
  */
-public class LoadImage extends JPanel{
-    public static final int CANVAS_WIDTH = 640;
-    public static final int CANVAS_HEIGHT = 640;
+public class LoadImage extends JPanel {
+
+    public static final int CANVAS_WIDTH = 640; //ukuran lebar window yang akan muncul
+    public static final int CANVAS_HEIGHT = 640; //ukuran tinggi window yang akan muncul 
     //jangan lupa masukin gambar di folder src/img!!!
-    private BufferedImage img;
-      
-public Image loadImageData(String imgFileName) {
+    private BufferedImage img; //atribut buffered image untuk me-load gambar
+    
+    /**
+     * Method untuk me-load gambar ke dalam window/canvas
+     * @param imgFileName nama file image yang akan di-load
+     * @return gambar yang telah di-load
+     */
+    public Image loadImageData(String imgFileName) {
         URL imgUrl = getClass().getClassLoader().getResource(imgFileName);
         if (imgUrl == null) {
             System.out.println("Couldn't find file: " + imgFileName);
@@ -36,6 +41,6 @@ public Image loadImageData(String imgFileName) {
             }
         }
         setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
-    return img;
+        return img;
     }
 }

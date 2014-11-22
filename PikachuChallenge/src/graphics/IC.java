@@ -7,12 +7,14 @@
 package graphics;
 
 /**
- *
+ * Kelas untuk merepresentasikan IC untuk membuka barrier pada game
  * @author i13067
  */
 public class IC extends Floor
 {
-    
+    /**
+     * Konstruktor untuk menentukan IC pada floor
+     */
     public IC()
     {
         //imgData=img.loadImageData("img\\PokeBall.jpg");

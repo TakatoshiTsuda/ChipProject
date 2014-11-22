@@ -15,20 +15,23 @@ import graphics.WaterFloor;
 import java.awt.Point;
 
 /**
- *
+ * Kelas untuk merepresentasikan tata cara permainan
  * @author i13067
  */
 public class Rule {
 
-    private Elements[][] dungeon;
-    private int levelStatus;
-    private Character character;
-    private int totalIC;
-    private boolean winStatus;
-    private Floor floor,waterFloor,fireFloor;
-    private ItemLists list;
-    private String specialFloor;
+    private Elements[][] dungeon; //atribut array untuk menentukan posisi objek
+    private int levelStatus; //atribut untuk menentukan level pada game
+    private Character character; //atribut untuk menampilkan chip
+    private int totalIC; //atribut untuk menentukan jumlah chip pada game
+    private boolean winStatus; //atribut untuk menentukan status menang/kalah
+    private Floor floor,waterFloor,fireFloor; //atribut lantai pada game
+    private ItemLists list; //atribut list barang
+    private String specialFloor; //atribut untuk menampilkan fire floor/water floor
 
+    /**
+     * Konstruktor untuk inisialisasi nilai atribut
+     */
     public Rule() {
         this.dungeon = new Elements[11][11];
         list=new ItemLists();
@@ -43,11 +46,21 @@ public class Rule {
         specialFloor="";
     }
 
+    /**
+     * Method untuk me-load level pada game
+     * @param level level pada game yang akan dimainkan
+     * @param ic  jumlah IC pada level
+     */
     public void LoadLevel(Elements[][] level, int ic) {
         this.dungeon = level;
         dungeon[1][1] = character;
         totalIC = ic;
     }
+    
+    /**
+     * Method untuk menjalankan chip
+     * @param code penentu arah gerak chip
+     */
     public void walk(int code) {
         int x = (int) character.getXPos();
         int y = (int) character.getYPos();
@@ -79,6 +92,10 @@ public class Rule {
         }
     }
 
+    /**
+     * Method untuk 
+     * @return 
+     */
     public String toString() {
         String text = "";
         for (int i = 0; i < 11; i++) {
@@ -90,6 +107,11 @@ public class Rule {
         return text;
     }
     
+    /**
+     * Method untuk mengganti lantai biasa dengan lantai api/air
+     * @param oldY nilai y pada floor lama
+     * @param oldX nilai x pada floor lama
+     */
     private void replaceOldFloor(int oldY,int oldX)
     {
         if(specialFloor.equals("")!=true)
@@ -110,6 +132,13 @@ public class Rule {
                     }
     }
     
+    /**
+     * Method untuk mengecek floor yang akan dituju
+     * @param y nilai y baru
+     * @param x nilai x baru
+     * @param oldY nilai y lama
+     * @param oldX nilai x lama
+     */
     private void CheckNextBlock(int y,int x,int oldY,int oldX)
     { 
         String temp="";
@@ -167,5 +196,4 @@ public class Rule {
                 }
             }
     }
-}    
-
+}

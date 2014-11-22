@@ -3,22 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package graphics;
 
 import java.awt.Image;
 
 /**
- *
+ * Kelas untuk merepresentasikan tembok penghalang pada game Chip tidak dapat
+ * melewati atau menginjak tembok/wall
  * @author i13067
  */
-public class Wall extends Floor
-{
-    
-   public Wall()
-   {
-       //imgData=img.loadImageData("img\\Wall.jpg");
-       test='H';
-       type="wall";
-   }
+public class Wall extends Floor {
+
+    /**
+     * Konstruktor untuk menentukan wall pada floor
+     */
+    public Wall() {
+        //imgData=img.loadImageData("img\\Wall.jpg");
+        test = 'H';
+        type = "wall";
+    }
 }

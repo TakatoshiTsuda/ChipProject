@@ -7,12 +7,14 @@
 package graphics;
 
 /**
- *
+ * Kelas untuk merepresentasikan lantai/tile pada game
  * @author i13067
  */
 public class Floor extends Elements{
 
-    
+    /**
+     * Konstruktor untuk menentukan lantai pada game
+     */
     public Floor()
     {
         //imgData=img.loadImageData("img\\floor.jpg");

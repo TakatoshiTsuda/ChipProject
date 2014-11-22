@@ -7,12 +7,14 @@
 package graphics;
 
 /**
- *
+ * Kelas yang merepresentasikan finish box pada game
  * @author i13067
  */
 public class FinishBox extends Floor
 {
-    
+    /**
+     * Konstruktor untuk menentukan finish box pada floor
+     */
     public FinishBox()
     {
         //imgData=img.loadImageData("img\\Gym.jpg");

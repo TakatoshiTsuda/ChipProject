@@ -3,39 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package gui;
+
 import engine.Rule;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import level.level1;
+
 /**
- *
+ * Kelas untuk merepresentasikan GUI dari game Pikachu Challenge
  * @author i13067
  */
 public class PikaChallengeGUI extends javax.swing.JFrame {
-    private int dir=6;
-    private Rule rule;
+
+    private int dir = 6; //menentukan arah hadap chip yaitu menghadap ke kanan
+    private Rule rule; //atribut objek rule
+
     /**
      * Creates new form PikaChallengeGUI
      */
     public PikaChallengeGUI() {
         initComponents();
         load();
-    }
+    }  
     
-    private void load()
-    {
-        rule=new Rule();
-        level1 level=new level1();
-        level.createLevel();
+    /**
+     * Method untuk me-load level dan rule
+     */
+    private void load() {
+        rule = new Rule();
+        level1 level = new level1(); //membuat objek level 1
+        level.createLevel(); //objek level 1 memanggil method untuk membuat level
         rule.LoadLevel(level.getLevel(), level.getIcTotal());
         jScrollPane1.setAutoscrolls(false);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         testGameField.setText(rule.toString());
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,28 +105,24 @@ public class PikaChallengeGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Method untuk menentukan arah gerak chip pada saat arrow key ditekan
+     * @param evt parameter tombol panah yang ditekan
+     */
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-            if(evt.getKeyCode()==KeyEvent.VK_LEFT)
-            {
-                this.dir=4;
-            }
-            else if(evt.getKeyCode()==KeyEvent.VK_RIGHT)
-            {
-                this.dir=6;
-            }
-            else if(evt.getKeyCode()==KeyEvent.VK_UP)
-            {
-                this.dir=2;
-            }
-            else if(evt.getKeyCode()==KeyEvent.VK_DOWN)
-            {
-                this.dir=8;
-            }
-            rule.walk(dir);
-            testGameField.setText(rule.toString());
-            
-            
+        if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
+            this.dir = 4;
+        } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
+            this.dir = 6;
+        } else if (evt.getKeyCode() == KeyEvent.VK_UP) {
+            this.dir = 2;
+        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            this.dir = 8;
+        }
+        rule.walk(dir);
+        testGameField.setText(rule.toString());
+
+
     }//GEN-LAST:event_formKeyPressed
 
     private void testGameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_testGameFieldKeyPressed

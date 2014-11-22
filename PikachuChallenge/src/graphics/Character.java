@@ -9,7 +9,7 @@ package graphics;
 import java.awt.Image;
 
 /**
- *
+ * Kelas untuk merepresentasikan chip pada game
  * @author i13067
  */
 public class Character extends Elements{
@@ -25,19 +25,29 @@ public class Character extends Elements{
     //private final Image charRight;
     
     private String direction; //character sedang menghadap ke arah mana? atas, bawah, kanan, kiri? bukan buat jalan
-    private boolean deadStatus;
+    private boolean deadStatus; //status hidup/mati chip
+    
+    /**
+     * Konstruktor untuk inisialisasi atribut 
+     * Juga memasukkan gambar dan menentukan arah gambar chip
+     */
     public Character()
     {
         test='C';
         type="character";
     	this.direction="left";
-        loadImage(direction);
+        loadImage(direction); //me-load gambar chip sesuai arah hadap chip
         deadStatus=false;
         //charUp=img.loadImageData("img\\PikachuUp.jpg");
         //charDown=img.loadImageData("img\\PikachuDown.jpg");
         //charLeft=img.loadImageData("img\\PikachuLeft.jpg");
         //charRight=img.loadImageData("img\\PikachuRight.jpg");
     }
+    
+    /**
+     * Method untuk me-load gambar chip pada arah tertentu
+     * @param direction arah chip
+     */
     public void loadImage(String direction)
     {
         switch (direction) {
@@ -56,6 +66,11 @@ public class Character extends Elements{
         }
     }
     
+    /**
+     * Method untuk menentukan kemana arah chip menghadap
+     * @param direct arah chip yang diinginkan
+     * @return 
+     */
     public String setDirection (String direct)
     {
         String res="";
@@ -73,6 +88,7 @@ public class Character extends Elements{
         }
         return res;
     }
+    
     /**
      * Digunakan untuk karakter berjalan
      * @param direction arah karakter berjalan
@@ -99,13 +115,20 @@ public class Character extends Elements{
             setDirection(direction);
         }
     }
-
+    
+    /**
+     * Method untuk menentukan status hidup/mati chip 
+     * @param deadStatus 
+     */
     public void setDeadStatus(boolean deadStatus) {
         this.deadStatus = deadStatus;
     }
-
+    
+    /**
+     * Method untuk memberi tahu status hidup/mati chip
+     * @return 
+     */
     public boolean isDeadStatus() {
         return deadStatus;
     }
-    
 }

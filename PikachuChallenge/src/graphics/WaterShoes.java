@@ -6,21 +6,27 @@
 package graphics;
 
 /**
- *
+ * Kelas untuk merepresentasikan sepatu air untuk chip pada game
+ * Sepatu air dapat digunakan oleh chip untuk melewati lantai air
  * @author maudynur
  */
 public class WaterShoes extends Shoes{
 
+    /**
+     * Konstruktor untuk menentukan sepatu air pada floor
+     */
     public WaterShoes()
     {
         test='E';
         setShoesType();
     }
 
+    /**
+     * Override method super class untuk menentukan tipe sepatu air
+     */
     @Override
     protected void setShoesType() {
         this.shoesType="water";
-        
     }
     
 }
