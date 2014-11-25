@@ -18,7 +18,7 @@ public abstract class levelBase {
     //create one and use it over and over
 
     protected Elements[][] ele; //atribut array objek kelas Elements 
-    protected Elements floor, fire, water, wall, barrier, ic, finish, fireShoes, waterShoes;
+    public Elements floor, fire, water, wall, barrier, ic, finish, fireShoes, waterShoes;
     //atribut yang akan muncul pada game Pikachu Challange
     protected int icTotal; //atribut untuk menentukan jumlah IC pada game
 
@@ -26,7 +26,7 @@ public abstract class levelBase {
      * Konstruktor untuk inisialisasi semua atribut
      */
     public levelBase() {
-        ele = new Elements[11][11]; //ukuran array elemen 2 dimensi pada game
+//        ele = new Elements[11][11]; //ukuran array elemen 2 dimensi pada game
         this.floor = new Floor(); //membuat objek lantai/tile
         this.fire = new FireFloor(); //membuat objek lantai api
         this.water = new WaterFloor(); //membuat objek lantai air

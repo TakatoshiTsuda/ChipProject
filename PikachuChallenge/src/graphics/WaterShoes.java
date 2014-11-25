@@ -17,7 +17,8 @@ public class WaterShoes extends Shoes{
      */
     public WaterShoes()
     {
-        test='E';
+         imgData=img.loadImageData("image//watershoes.png");
+//        test='E';
         setShoesType();
     }
 

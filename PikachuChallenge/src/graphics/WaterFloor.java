@@ -20,8 +20,8 @@ public class WaterFloor extends Floor{
      */
     public WaterFloor()
     {
-        //imgData=img.loadImageData("img\\Fire.jpg");
-        test='A';
+        imgData=img.loadImageData("img//air.png");
+//        test='A';
         type="water";
     }
 }

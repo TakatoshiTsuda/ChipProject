@@ -3,23 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package graphics;
+
+import java.awt.Image;
 
 /**
  * Kelas untuk merepresentasikan lantai/tile pada game
+ *
  * @author i13067
  */
-public class Floor extends Elements{
+public class Floor extends Elements {
 
     /**
      * Konstruktor untuk menentukan lantai pada game
      */
-    public Floor()
-    {
-        //imgData=img.loadImageData("img\\floor.jpg");
-        test='O';
-        type="floor";
+    public Floor() {
+//        imgData = img.loadImageData("img//floor.png");
+//        test='O';
+        type = "floor";
     }
-    
+
+    public Image setImage() {
+        this.imgData = img.loadImageData("img//floor.png");
+        return this.imgData;
+    }
+
 }

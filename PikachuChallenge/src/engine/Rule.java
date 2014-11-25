@@ -41,7 +41,7 @@ public class Rule {
         fireFloor=new FireFloor();
         character = new Character();
         Point pos = new Point(1, 1);
-        character.SetPos(pos);
+        character.setPos(pos);
         winStatus = false;
         specialFloor="";
     }
@@ -148,7 +148,7 @@ public class Rule {
                     if (totalIC == 0) {
                         dungeon[y][x] = character;
                         dungeon[oldY][oldX] = new Floor();
-                        character.SetPos(pos);
+                        character.setPos(pos);
                     }
                 } else {
                     switch (dungeon[y][x].getType()) {
@@ -191,7 +191,7 @@ public class Rule {
                     }
                     replaceOldFloor(oldY,oldX);
                     specialFloor=temp;
-                    character.SetPos(pos);
+                    character.setPos(pos);
                     dungeon[y][x] = character;
                 }
             }

@@ -5,6 +5,7 @@
  */
 package graphics;
 
+import engine.LoadImage;
 import java.awt.Image;
 import java.awt.Point;
 
@@ -14,8 +15,8 @@ import java.awt.Point;
  */
 public abstract class Elements {
 
-    //protected Image imgData;
-    //protected LoadImage img;
+    public Image imgData;
+    protected LoadImage img;
 
     protected Point position; //atribut Point untuk menentukan posisi
     //for test purpose only
@@ -24,14 +25,13 @@ public abstract class Elements {
     protected String type; //atribut untuk menentukan tipe dari elemen
 
     public Elements() {
-        //this.loadImage(null);
     }
     
     /**
      * Method untuk menentukan koordinat posisi
      * @param pos koordinat posisi yang diinginkan
      */
-    public void SetPos(Point pos) {
+    public void setPos(Point pos) {
         this.position = pos;
     }
     
@@ -39,24 +39,24 @@ public abstract class Elements {
      * Method untuk me-load gambar
      * @param imgUrl nama file gambar yang akan di-load
      */
-    private void loadImage(String imgUrl) {
-        //img.loadImageData(imgUrl);
+    public Image loadImage(String imgUrl) {
+        return img.loadImageData(imgUrl);
     }
     
     /**
      * Method untuk mendapatkan nilai posisi absis
      * @return posisi absis
      */
-    public double getXPos() {
-        return position.getX();
+    public int getXPos() {
+        return (int)position.getX();
     }
     
     /**
      * Method untuk mendapatkan nilai posisi ordinat
      * @return posisi ordinat
      */
-    public double getYPos() {
-        return position.getY();
+    public int getYPos() {
+        return (int)position.getY();
     }
     
     /**

@@ -17,8 +17,8 @@ public class IC extends Floor
      */
     public IC()
     {
-        //imgData=img.loadImageData("img\\PokeBall.jpg");
-        test='T';
+        imgData=img.loadImageData("img//chip.png");
+//        test='T';
         type="ic";
     }
     

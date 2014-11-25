@@ -5,23 +5,20 @@
  */
 package engine;
 
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 /**
  * Kelas untuk me-load gambar ke dalam window/canvas
  * @author i13067
  */
-public class LoadImage extends JPanel {
+public class LoadImage {
 
-    public static final int CANVAS_WIDTH = 640; //ukuran lebar window yang akan muncul
-    public static final int CANVAS_HEIGHT = 640; //ukuran tinggi window yang akan muncul 
-    //jangan lupa masukin gambar di folder src/img!!!
+//    public static final int CANVAS_WIDTH = 640; //ukuran lebar window yang akan muncul
+//    public static final int CANVAS_HEIGHT = 640; //ukuran tinggi window yang akan muncul 
     private BufferedImage img; //atribut buffered image untuk me-load gambar
     
     /**
@@ -37,10 +34,9 @@ public class LoadImage extends JPanel {
             try {
                 img = ImageIO.read(imgUrl);
             } catch (IOException ex) {
-                ex.printStackTrace();
             }
         }
-        setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
+//        setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
         return img;
     }
 }

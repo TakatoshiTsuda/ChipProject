@@ -17,8 +17,8 @@ public class FinishBox extends Floor
      */
     public FinishBox()
     {
-        //imgData=img.loadImageData("img\\Gym.jpg");
-        test='F';
+        imgData=img.loadImageData("img//finish.png");
+//        test='F';
         type="finish";
     }
     
