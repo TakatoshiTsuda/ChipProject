@@ -26,16 +26,16 @@ public abstract class levelBase {
      * Konstruktor untuk inisialisasi semua atribut
      */
     public levelBase() {
-//        ele = new Elements[11][11]; //ukuran array elemen 2 dimensi pada game
-        this.floor = new Floor(); //membuat objek lantai/tile
-        this.fire = new FireFloor(); //membuat objek lantai api
-        this.water = new WaterFloor(); //membuat objek lantai air
-        this.wall = new Wall(); //membuat objek tembok
-        this.barrier = new Barrier(); //membuat objek penghalang
-        this.ic = new IC(); //membuat objek IC
-        this.finish = new FinishBox(); //membuat objek finish box
-        this.waterShoes = new WaterShoes(); //membuat objek sepatu air
-        this.fireShoes = new FireShoes(); //membuat objek sepatu api
+        ele = new Elements[11][11]; //ukuran array elemen 2 dimensi pada game
+//        this.floor = new Floor(); //membuat objek lantai/tile
+//        this.fire = new FireFloor(); //membuat objek lantai api
+//        this.water = new WaterFloor(); //membuat objek lantai air
+//        this.wall = new Wall(); //membuat objek tembok
+//        this.barrier = new Barrier(); //membuat objek penghalang
+//        this.ic = new IC(); //membuat objek IC
+//        this.finish = new FinishBox(); //membuat objek finish box
+//        this.waterShoes = new WaterShoes(); //membuat objek sepatu air
+//        this.fireShoes = new FireShoes(); //membuat objek sepatu api
         icTotal = 0; //inisialisasi nilai awal atribut IC
     }
 

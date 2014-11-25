@@ -18,14 +18,9 @@ public class Floor extends Elements {
      * Konstruktor untuk menentukan lantai pada game
      */
     public Floor() {
-//        imgData = img.loadImageData("img//floor.png");
+        imgData = img.loadImageData("img//floor.png");
 //        test='O';
         type = "floor";
-    }
-
-    public Image setImage() {
-        this.imgData = img.loadImageData("img//floor.png");
-        return this.imgData;
     }
 
 }

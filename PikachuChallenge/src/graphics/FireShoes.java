@@ -17,7 +17,7 @@ public class FireShoes extends Shoes{
      */
     public FireShoes()
     {
-        imgData=img.loadImageData("image//fireshoes.png");
+        imgData=img.loadImageData("img//fireshoes.png");
 //        test='X';
         setShoesType();
     }

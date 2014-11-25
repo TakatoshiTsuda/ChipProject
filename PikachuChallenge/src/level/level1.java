@@ -6,7 +6,16 @@
 package level;
 
 import engine.*;
+import graphics.Barrier;
 import graphics.Elements;
+import graphics.FinishBox;
+import graphics.FireFloor;
+import graphics.FireShoes;
+import graphics.Floor;
+import graphics.IC;
+import graphics.Wall;
+import graphics.WaterFloor;
+import graphics.WaterShoes;
 import java.awt.Point;
 
 /**
@@ -28,91 +37,77 @@ public class level1 extends levelBase {
         /**
          * Mengisi Array Elements dengan floor
          */
-        for (int i = 0; i <= 550; i += 50) {
-            for (int j = 0; j <= 550; j += 50) {
-                Point p = new Point(i, j);
-                this.floor.setPos(p);
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                ele[i][j] = new Floor();
             }
         }
 
         /**
          * Menentukan posisi wall bagian atas
          */
-        for (int i = 0; i <= 550; i += 50) {
-            Point p = new Point(i, 0);
-            this.wall.setPos(p);
+        for (int i = 0; i < 11; i++) {
+            ele[i][0] = new Wall();
         }
 
         /**
          * Menentukan posisi wall bagian bawah
          */
-        for (int i = 0; i <= 550; i += 50) {
-            Point p = new Point(i, 500);
-            this.wall.setPos(p);
+        for (int i = 0; i < 11; i++) {
+            ele[i][10] = new Wall();
         }
 
         /**
          * Menentukan posisi wall bagian kiri
          */
-        for (int i = 0; i <= 550; i += 50) {
-            Point p = new Point(0, i);
-            this.wall.setPos(p);
+        for (int i = 0; i < 11; i++) {
+            ele[0][i] = new Wall();
         }
 
         /**
          * Menentukan posisi wall bagian kanan
          */
         for (int i = 0; i < 11; i++) {
-            ele[10][i] = this.wall;
+            ele[10][i] = new Wall();
         }
 
         /**
          * Menentukan posisi finish box
          */
-        Point p = new Point(500, 500);
-        this.finish.setPos(p);
+        ele[9][9] = new FinishBox();
 
         /**
          * Menentukan posisi barrier
          */
-        Point p1 = new Point(450, 500);
-        barrier.setPos(p1);
-        Point p2 = new Point(500, 450);
-        barrier.setPos(p2);
+        ele[8][9] = new Barrier(); 
+        ele[9][8] = new Barrier();
 
         /**
          * Menentukan posisi IC
          */
-        Point ic1 = new Point(150, 150);
-        ic.setPos(ic1);
-        Point ic2 = new Point(200, 150);
-        ic.setPos(ic2);
-        Point ic3 = new Point(250, 150);
-        ic.setPos(ic3);
+        ele[2][2] = new IC();
+        ele[2][3] = new IC();
+        ele[2][4] = new IC();
 
         /**
          * Menentukan posisi fire floor
          */
-        Point f = new Point(200, 200);
-        fire.setPos(f);
+        ele[3][3] = new FireFloor();
 
         /**
          * Menentukan posisi water floor
          */
-        Point w = new Point(250, 200);
-        water.setPos(w);
+        ele[4][3] = new WaterFloor();
 
         /**
          * Menentukan posisi water shoes
          */
-        Point ws = new Point(150, 500);
-        waterShoes.setPos(ws);
+        ele[2][9]=new WaterShoes();
 
         /**
          * Menentukan posisi fire shoes
          */
-        Point fs = new Point(150, 450);
-        fireShoes.setPos(fs);
+        ele [2][8]=new FireShoes();
     }
 
 }

@@ -11,6 +11,7 @@ import java.awt.Point;
 
 /**
  * Kelas yang merepresentasikan parent class dari objek-objek pada game
+ *
  * @author i13067
  */
 public abstract class Elements {
@@ -25,53 +26,55 @@ public abstract class Elements {
     protected String type; //atribut untuk menentukan tipe dari elemen
 
     public Elements() {
+        this.img = new LoadImage();
     }
-    
+
     /**
      * Method untuk menentukan koordinat posisi
+     *
      * @param pos koordinat posisi yang diinginkan
      */
     public void setPos(Point pos) {
         this.position = pos;
     }
-    
-    /**
-     * Method untuk me-load gambar
-     * @param imgUrl nama file gambar yang akan di-load
-     */
-    public Image loadImage(String imgUrl) {
-        return img.loadImageData(imgUrl);
-    }
-    
+
     /**
      * Method untuk mendapatkan nilai posisi absis
+     *
      * @return posisi absis
      */
     public int getXPos() {
-        return (int)position.getX();
+        return (int) position.getX();
     }
-    
+
     /**
      * Method untuk mendapatkan nilai posisi ordinat
+     *
      * @return posisi ordinat
      */
     public int getYPos() {
-        return (int)position.getY();
+        return (int) position.getY();
     }
-    
+
     /**
      * Method untuk menampilkan prototype testing dari game
+     *
      * @return hasil testing yang diprint ke window
      */
     public char getTest() {
         return test;
     }
-    
+
     /**
      * Method untuk memberi tahu tipe dari elemen
+     *
      * @return tipe dari elemen
      */
     public String getType() {
         return type;
+    }
+
+    public Image getImage() {
+        return this.imgData;
     }
 }

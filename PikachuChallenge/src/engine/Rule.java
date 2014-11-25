@@ -12,10 +12,12 @@ import graphics.FireFloor;
 import graphics.Floor;
 import graphics.Shoes;
 import graphics.WaterFloor;
+import java.awt.Image;
 import java.awt.Point;
 
 /**
  * Kelas untuk merepresentasikan tata cara permainan
+ *
  * @author i13067
  */
 public class Rule {
@@ -25,7 +27,7 @@ public class Rule {
     private Character character; //atribut untuk menampilkan chip
     private int totalIC; //atribut untuk menentukan jumlah chip pada game
     private boolean winStatus; //atribut untuk menentukan status menang/kalah
-    private Floor floor,waterFloor,fireFloor; //atribut lantai pada game
+    private Floor floor, waterFloor, fireFloor; //atribut lantai pada game
     private ItemLists list; //atribut list barang
     private String specialFloor; //atribut untuk menampilkan fire floor/water floor
 
@@ -34,31 +36,33 @@ public class Rule {
      */
     public Rule() {
         this.dungeon = new Elements[11][11];
-        list=new ItemLists();
+        list = new ItemLists();
         levelStatus = 1;
-        floor=new Floor();
-        waterFloor=new WaterFloor();
-        fireFloor=new FireFloor();
+        floor = new Floor();
+        waterFloor = new WaterFloor();
+        fireFloor = new FireFloor();
         character = new Character();
         Point pos = new Point(1, 1);
         character.setPos(pos);
         winStatus = false;
-        specialFloor="";
+        specialFloor = "";
     }
 
     /**
      * Method untuk me-load level pada game
+     *
      * @param level level pada game yang akan dimainkan
-     * @param ic  jumlah IC pada level
+     * @param ic jumlah IC pada level
      */
     public void LoadLevel(Elements[][] level, int ic) {
         this.dungeon = level;
         dungeon[1][1] = character;
         totalIC = ic;
     }
-    
+
     /**
      * Method untuk menjalankan chip
+     *
      * @param code penentu arah gerak chip
      */
     public void walk(int code) {
@@ -74,7 +78,7 @@ public class Rule {
                 dir = "left";
                 break;
             case 6:
-                nextX = x + 1;
+                nextX = x + 50;
                 dir = "right";
                 break;
             case 2:
@@ -93,8 +97,9 @@ public class Rule {
     }
 
     /**
-     * Method untuk 
-     * @return 
+     * Method untuk
+     *
+     * @return
      */
     public String toString() {
         String text = "";
@@ -106,94 +111,93 @@ public class Rule {
         }
         return text;
     }
-    
+
+    public Image[][] getImages() {
+        Image[][] i = new Image[11][11];
+        for (int j = 0; j < 11; j++) {
+            for (int k = 0; k < 11; k++) {
+                i[j][k] = dungeon[j][k].getImage();
+            }
+        }
+        return i;
+    }
+
     /**
      * Method untuk mengganti lantai biasa dengan lantai api/air
+     *
      * @param oldY nilai y pada floor lama
      * @param oldX nilai x pada floor lama
      */
-    private void replaceOldFloor(int oldY,int oldX)
-    {
-        if(specialFloor.equals("")!=true)
-                    {
-                        if(specialFloor.equals("fire"))
-                        {
-                            dungeon[oldY][oldX] =this.fireFloor;
-                        }
-                        else if(specialFloor.equals("water"))
-                        {
-                            dungeon[oldY][oldX] =this.waterFloor;
-                        }
-                        specialFloor="";
-                    }
-                    else
-                    {
-                        dungeon[oldY][oldX] =this.floor;
-                    }
+    private void replaceOldFloor(int oldY, int oldX) {
+        if (specialFloor.equals("") != true) {
+            if (specialFloor.equals("fire")) {
+                dungeon[oldY][oldX] = this.fireFloor;
+            } else if (specialFloor.equals("water")) {
+                dungeon[oldY][oldX] = this.waterFloor;
+            }
+            specialFloor = "";
+        } else {
+            dungeon[oldY][oldX] = this.floor;
+        }
     }
-    
+
     /**
      * Method untuk mengecek floor yang akan dituju
+     *
      * @param y nilai y baru
      * @param x nilai x baru
      * @param oldY nilai y lama
      * @param oldX nilai x lama
      */
-    private void CheckNextBlock(int y,int x,int oldY,int oldX)
-    { 
-        String temp="";
+    private void CheckNextBlock(int y, int x, int oldY, int oldX) {
+        String temp = "";
         Point pos = new Point(x, y);
-         if (dungeon[y][x].getType().equals("wall") != true) {
-                if (dungeon[y][x].getType().equals("barrier")) {
-                    if (totalIC == 0) {
-                        dungeon[y][x] = character;
-                        dungeon[oldY][oldX] = new Floor();
-                        character.setPos(pos);
-                    }
-                } else {
-                    switch (dungeon[y][x].getType()) {
-                        case "fire":
-                                if (list.isFireShoesOn() == true) {
-                                    temp="fire";
-                                } 
-                                else {
-                                    character.setDeadStatus(true);
-                                    System.out.println("YOU LOSE");
-                                }
-                                break;
-                        case "water":
-                                if (list.isWaterShoesOn() == true) {
-                                    temp="water";
-                                } 
-                                else {
-                                    character.setDeadStatus(true);
-                                    System.out.println("YOU LOSE");
-                                }
-                                break;
-                        case "ic":
-                            totalIC--;
-                            break;
-                        case "finish":
-                            winStatus = true;
-                            System.out.println("YOU WIN");
-                            break;
-                        case "shoes":
-                            Shoes shoes=(Shoes)dungeon[y][x];
-                            if(shoes.getShoesType().equals("fire"))
-                            {
-                                list.setFireShoesOn(true);
-                            }
-                            else
-                            {
-                                list.setWaterShoesOn(true);
-                            }
-                            break;
-                    }
-                    replaceOldFloor(oldY,oldX);
-                    specialFloor=temp;
-                    character.setPos(pos);
+        if (dungeon[y][x].getType().equals("wall") != true) {
+            if (dungeon[y][x].getType().equals("barrier")) {
+                if (totalIC == 0) {
                     dungeon[y][x] = character;
+                    dungeon[oldY][oldX] = new Floor();
+                    character.setPos(pos);
                 }
+            } else {
+                switch (dungeon[y][x].getType()) {
+                    case "fire":
+                        if (list.isFireShoesOn() == true) {
+                            temp = "fire";
+                        } else {
+                            character.setDeadStatus(true);
+                            System.out.println("YOU LOSE");
+                        }
+                        break;
+                    case "water":
+                        if (list.isWaterShoesOn() == true) {
+                            temp = "water";
+                        } else {
+                            character.setDeadStatus(true);
+                            System.out.println("YOU LOSE");
+                        }
+                        break;
+                    case "ic":
+                        totalIC--;
+                        break;
+                    case "finish":
+                        winStatus = true;
+                        System.out.println("YOU WIN");
+                        break;
+                    case "shoes":
+                        Shoes shoes = (Shoes) dungeon[y][x];
+                        if (shoes.getShoesType().equals("fire")) {
+                            list.setFireShoesOn(true);
+                        } else {
+                            list.setWaterShoesOn(true);
+                        }
+                        break;
+                }
+                replaceOldFloor(oldY, oldX);
+                specialFloor = temp;
+                character.setPos(pos);
+                dungeon[y][x] = character;
             }
+        }
     }
 }

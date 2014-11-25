@@ -15,14 +15,14 @@ import java.awt.Image;
 public class Character extends Elements {
 
     //load image sekaligus di constructor, biar proses load image lebih cepat daripada load image tiap karakter bergerak
-    private final Image charUp;
-    private final Image[] up;
-    private final Image charDown;
-    private final Image[] down;
-    private final Image charLeft;
-    private final Image[] left;
-    private final Image charRight;
-    private final Image[] right;
+//    private final Image charUp;
+//    private final Image[] up;
+//    private final Image charDown;
+//    private final Image[] down;
+//    private final Image charLeft;
+//    private final Image[] left;
+//    private final Image charRight;
+//    private final Image[] right;
 
     private String direction; //character sedang menghadap ke arah mana? atas, bawah, kanan, kiri? bukan buat jalan
     private boolean deadStatus; //status hidup/mati chip
@@ -35,24 +35,25 @@ public class Character extends Elements {
 //        test='C';
         type = "character";
         this.direction = "left";
-        loadImage(direction); //me-load gambar chip sesuai arah hadap chip
         deadStatus = false;
-        up = new Image[2];
-        up[0] = img.loadImageData("img//back_1.png");
-        up[1] = img.loadImageData("img//back_2.png");
-        down = new Image[2];
-        down[0] = img.loadImageData("img//front_1.png");
-        down[1] = img.loadImageData("img//front_2.png");
-        left = new Image[2];
-        left[0] = img.loadImageData("img//left_1.png");
-        left[1] = img.loadImageData("img//left_2.png");
-        right = new Image[2];
-        right[0] = img.loadImageData("img//right_1.png");
-        right[1] = img.loadImageData("img//right_2.png");
-        charUp = img.loadImageData("img//back.png");
-        charDown = img.loadImageData("img//front.png");
-        charLeft = img.loadImageData("img//left.png");
-        charRight = img.loadImageData("img//right.png");
+        loadImage(direction); //me-load gambar chip sesuai arah hadap chip
+        imgData=img.loadImageData("img//right.png");
+//        up = new Image[2];
+//        up[0] = img.loadImageData("img//back_1.png");
+//        up[1] = img.loadImageData("img//back_2.png");
+//        down = new Image[2];
+//        down[0] = img.loadImageData("img//front_1.png");
+//        down[1] = img.loadImageData("img//front_2.png");
+//        left = new Image[2];
+//        left[0] = img.loadImageData("img//left_1.png");
+//        left[1] = img.loadImageData("img//left_2.png");
+//        right = new Image[2];
+//        right[0] = img.loadImageData("img//right_1.png");
+//        right[1] = img.loadImageData("img//right_2.png");
+//        charUp = img.loadImageData("img//back.png");
+//        charDown = img.loadImageData("img//front.png");
+//        charLeft = img.loadImageData("img//left.png");
+//        charRight = img.loadImageData("img//right.png");
     }
 
     /**
@@ -60,16 +61,20 @@ public class Character extends Elements {
      *
      * @param direction arah chip
      */
-    public Image loadImage(String direction) {
+    public void loadImage(String direction) {
         switch (direction) {
             case "left":
-            return charLeft;
+                imgData=img.loadImageData("");
+                break;
             case "right":
-            return charRight;
+                imgData=img.loadImageData("");
+                break;
             case "up":
-            return charUp;
+                imgData=img.loadImageData("");
+                break;
             default:
-            return charDown;
+                imgData=img.loadImageData("");
+                break;
         }
     }
 
