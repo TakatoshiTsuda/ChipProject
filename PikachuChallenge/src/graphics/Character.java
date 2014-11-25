@@ -14,14 +14,13 @@ import java.awt.Image;
  */
 public class Character extends Elements {
 
-    //load image sekaligus di constructor, biar proses load image lebih cepat daripada load image tiap karakter bergerak
-//    private final Image charUp;
+    private final String charUp;
 //    private final Image[] up;
-//    private final Image charDown;
+    private final String charDown;
 //    private final Image[] down;
-//    private final Image charLeft;
+    private final String charLeft;
 //    private final Image[] left;
-//    private final Image charRight;
+    private final String charRight;
 //    private final Image[] right;
     private String direction; //character sedang menghadap ke arah mana? atas, bawah, kanan, kiri? bukan buat jalan
     private boolean deadStatus; //status hidup/mati chip
@@ -32,10 +31,10 @@ public class Character extends Elements {
      */
     public Character() {
 //        test='C';
+
         type = "character";
         this.direction = "right";
         deadStatus = false;
-        loadImage(direction); //me-load gambar chip sesuai arah hadap chip
         imgData = img.loadImageData("img//right.png");
 //        up = new Image[2];
 //        up[0] = img.loadImageData("img//back_1.png");
@@ -49,10 +48,10 @@ public class Character extends Elements {
 //        right = new Image[2];
 //        right[0] = img.loadImageData("img//right_1.png");
 //        right[1] = img.loadImageData("img//right_2.png");
-//        charUp = img.loadImageData("img//back.png");
-//        charDown = img.loadImageData("img//front.png");
-//        charLeft = img.loadImageData("img//left.png");
-//        charRight = img.loadImageData("img//right.png");
+        this.charUp = ("img//back.png");
+        this.charDown = ("img//front.png");
+        this.charLeft = ("img//left.png");
+        this.charRight = ("img//right.png");
     }
 
     /**
@@ -63,16 +62,16 @@ public class Character extends Elements {
     public void loadImage(String direction) {
         switch (direction) {
             case "left":
-                imgData = img.loadImageData("");
+                imgData = img.loadImageData(charLeft);
                 break;
             case "right":
-                imgData = img.loadImageData("");
+                imgData = img.loadImageData(charRight);
                 break;
             case "up":
-                imgData = img.loadImageData("");
+                imgData = img.loadImageData(charUp);
                 break;
             default:
-                imgData = img.loadImageData("");
+                imgData = img.loadImageData(charDown);
                 break;
         }
     }
@@ -100,30 +99,10 @@ public class Character extends Elements {
     }
 
     /**
-     * Digunakan untuk karakter berjalan
+     * Method untuk menentukan status hidup/mati chip
      *
-     * @param direction arah karakter berjalan
+     * @param deadStatus
      */
-    public void walk(String direction) {
-        if (isDeadStatus() != true) {
-            if (direction.equals("left")) {
-                this.position.setLocation(this.position.getX() - 1, this.position.getY());
-            } else if (direction.equals("right")) {
-                this.position.setLocation(this.position.getX() + 1, this.position.getY());
-            } else if (direction.equals("up")) {
-                this.position.setLocation(this.position.getX(), this.position.getY() - 1);
-            } else if (direction.equals("down")) {
-                this.position.setLocation(this.position.getX(), this.position.getY() + 1);
-            }
-            loadImage(direction);
-            setDirection(direction);
-        }
-    }
-        /**
-         * Method untuk menentukan status hidup/mati chip
-         *
-         * @param deadStatus
-         */
     public void setDeadStatus(boolean deadStatus) {
         this.deadStatus = deadStatus;
     }
