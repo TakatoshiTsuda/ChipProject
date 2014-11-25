@@ -23,7 +23,6 @@ public class Character extends Elements {
 //    private final Image[] left;
 //    private final Image charRight;
 //    private final Image[] right;
-
     private String direction; //character sedang menghadap ke arah mana? atas, bawah, kanan, kiri? bukan buat jalan
     private boolean deadStatus; //status hidup/mati chip
 
@@ -34,10 +33,10 @@ public class Character extends Elements {
     public Character() {
 //        test='C';
         type = "character";
-        this.direction = "left";
+        this.direction = "right";
         deadStatus = false;
         loadImage(direction); //me-load gambar chip sesuai arah hadap chip
-        imgData=img.loadImageData("img//right.png");
+        imgData = img.loadImageData("img//right.png");
 //        up = new Image[2];
 //        up[0] = img.loadImageData("img//back_1.png");
 //        up[1] = img.loadImageData("img//back_2.png");
@@ -64,16 +63,16 @@ public class Character extends Elements {
     public void loadImage(String direction) {
         switch (direction) {
             case "left":
-                imgData=img.loadImageData("");
+                imgData = img.loadImageData("");
                 break;
             case "right":
-                imgData=img.loadImageData("");
+                imgData = img.loadImageData("");
                 break;
             case "up":
-                imgData=img.loadImageData("");
+                imgData = img.loadImageData("");
                 break;
             default:
-                imgData=img.loadImageData("");
+                imgData = img.loadImageData("");
                 break;
         }
     }
@@ -107,31 +106,24 @@ public class Character extends Elements {
      */
     public void walk(String direction) {
         if (isDeadStatus() != true) {
-            switch (direction) {
-                case "left":
-                    this.position.setLocation(this.position.getX() - 50, this.position.getY());
-                    
-                    break;
-                case "right":
-                    this.position.setLocation(this.position.getX() + 50, this.position.getY());
-                    break;
-                case "up":
-                    this.position.setLocation(this.position.getX(), this.position.getY() + 50);
-                    break;
-                default:
-                    this.position.setLocation(this.position.getX(), this.position.getY() - 50);
-                    break;
+            if (direction.equals("left")) {
+                this.position.setLocation(this.position.getX() - 1, this.position.getY());
+            } else if (direction.equals("right")) {
+                this.position.setLocation(this.position.getX() + 1, this.position.getY());
+            } else if (direction.equals("up")) {
+                this.position.setLocation(this.position.getX(), this.position.getY() - 1);
+            } else if (direction.equals("down")) {
+                this.position.setLocation(this.position.getX(), this.position.getY() + 1);
             }
             loadImage(direction);
             setDirection(direction);
         }
     }
-
-    /**
-     * Method untuk menentukan status hidup/mati chip
-     *
-     * @param deadStatus
-     */
+        /**
+         * Method untuk menentukan status hidup/mati chip
+         *
+         * @param deadStatus
+         */
     public void setDeadStatus(boolean deadStatus) {
         this.deadStatus = deadStatus;
     }

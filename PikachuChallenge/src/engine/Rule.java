@@ -78,7 +78,7 @@ public class Rule {
                 dir = "left";
                 break;
             case 6:
-                nextX = x + 50;
+                nextX = x + 1;
                 dir = "right";
                 break;
             case 2:
@@ -91,9 +91,11 @@ public class Rule {
                 break;
         }
         if (character.isDeadStatus() != true && winStatus != true) {
-            CheckNextBlock(nextY, nextX, y, x);
-            character.walk(dir);
+            CheckNextBlock(nextX, nextY, x, y);
+//            character.walk(dir);
         }
+        System.out.println("X= "+x);
+        System.out.println("Y= "+y);
     }
 
     /**
@@ -128,16 +130,16 @@ public class Rule {
      * @param oldY nilai y pada floor lama
      * @param oldX nilai x pada floor lama
      */
-    private void replaceOldFloor(int oldY, int oldX) {
+    private void replaceOldFloor(int oldX, int oldY) {
         if (specialFloor.equals("") != true) {
             if (specialFloor.equals("fire")) {
-                dungeon[oldY][oldX] = this.fireFloor;
+                dungeon[oldX][oldY] = this.fireFloor;
             } else if (specialFloor.equals("water")) {
-                dungeon[oldY][oldX] = this.waterFloor;
+                dungeon[oldX][oldY] = this.waterFloor;
             }
             specialFloor = "";
         } else {
-            dungeon[oldY][oldX] = this.floor;
+            dungeon[oldX][oldY] = this.floor;
         }
     }
 
@@ -149,18 +151,18 @@ public class Rule {
      * @param oldY nilai y lama
      * @param oldX nilai x lama
      */
-    private void CheckNextBlock(int y, int x, int oldY, int oldX) {
+    private void CheckNextBlock(int x, int y, int oldX, int oldY) {
         String temp = "";
         Point pos = new Point(x, y);
         if (dungeon[y][x].getType().equals("wall") != true) {
             if (dungeon[y][x].getType().equals("barrier")) {
                 if (totalIC == 0) {
-                    dungeon[y][x] = character;
-                    dungeon[oldY][oldX] = new Floor();
+                    dungeon[x][y] = character;
+                    dungeon[oldX][oldY] = new Floor();
                     character.setPos(pos);
                 }
             } else {
-                switch (dungeon[y][x].getType()) {
+                switch (dungeon[x][y].getType()) {
                     case "fire":
                         if (list.isFireShoesOn() == true) {
                             temp = "fire";
@@ -185,7 +187,7 @@ public class Rule {
                         System.out.println("YOU WIN");
                         break;
                     case "shoes":
-                        Shoes shoes = (Shoes) dungeon[y][x];
+                        Shoes shoes = (Shoes) dungeon[x][y];
                         if (shoes.getShoesType().equals("fire")) {
                             list.setFireShoesOn(true);
                         } else {
@@ -193,10 +195,10 @@ public class Rule {
                         }
                         break;
                 }
-                replaceOldFloor(oldY, oldX);
+                replaceOldFloor(oldX, oldY);
                 specialFloor = temp;
                 character.setPos(pos);
-                dungeon[y][x] = character;
+                dungeon[x][y] = character;
             }
         }
     }
