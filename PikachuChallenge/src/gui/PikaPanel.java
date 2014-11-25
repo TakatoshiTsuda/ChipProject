@@ -28,12 +28,14 @@ public class PikaPanel extends JPanel implements KeyListener {
     private Rule rule;
     private int dir = 6;
     private Level1 level;
-    Image pika;
+    Image pika, wS, fS;
 
     public PikaPanel() {
-        this.load=new LoadImage();
-        this.pika=load.loadImageData("img//pika.png");
-        setPreferredSize(new Dimension(720, 560));
+        this.load = new LoadImage();
+        this.pika = load.loadImageData("img//pika.png");
+        this.wS = load.loadImageData("img//watershoes.png");
+        this.fS = load.loadImageData("img//fireshoes.png");
+        setPreferredSize(new Dimension(715, 560));
         addKeyListener(this);
         level = new Level1();
         level.createLevel();
@@ -87,8 +89,23 @@ public class PikaPanel extends JPanel implements KeyListener {
         g.setFont(new Font(Font.SERIF, Font.BOLD, 15));
         g.drawString("Available pokeball: ", 580, 155);
         g.setColor(Color.RED);
-        g.setFont(new Font (Font.DIALOG_INPUT, Font.BOLD, 70));
-        g.drawString(level.getIcTotal()+"", 620, 205);
+        g.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 70));
+        g.drawString(rule.totalIC + "", 620, 205);
+        if (rule.winStatus == true) {
+            g.setColor(Color.red);
+            g.drawString("You Win!", 200, 250);
+        } else if (rule.character.isDeadStatus() == true) {
+            g.drawString("You lose!", 200, 250);
+        }
+        g.setFont(new Font(Font.SERIF, Font.BOLD, 15));
+        g.setColor(Color.black);
+        g.drawString("Item:", 580, 225);
+        if (rule.list.isFireShoesOn()) {
+            g.drawImage(fS, 580, 230, this);
+        }
+        if (rule.list.isWaterShoesOn()) {
+            g.drawImage(wS, 635, 230, this);
+        }
         repaint();
 
     }

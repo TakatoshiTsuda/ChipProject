@@ -16,7 +16,6 @@ public abstract class LevelBase {
 
     //use one object for every type to reduce memory usage!
     //create one and use it over and over
-
     protected Elements[][] ele; //atribut array objek kelas Elements 
     public Elements floor, fire, water, wall, barrier, ic, finish, fireShoes, waterShoes;
     //atribut yang akan muncul pada game Pikachu Challange
@@ -40,22 +39,23 @@ public abstract class LevelBase {
     }
 
     /**
-     * Method abstrak yang akan diturunkan kepada kelas turunannya
-     * Method untuk membuat level baru
-     * Kelas turunan dari kelas ini adalah kelas Level 1
+     * Method abstrak yang akan diturunkan kepada kelas turunannya Method untuk
+     * membuat level baru Kelas turunan dari kelas ini adalah kelas Level 1
      */
     public abstract void createLevel();
-    
+
     /**
      * Kelas untuk mendapatkan informasi tampilan level pada game
+     *
      * @return tampilan level pada game
      */
     public Elements[][] getLevel() {
         return ele;
     }
-    
+
     /**
      * Method untuk mendapatkan jumlah total IC pada game
+     *
      * @return jumlah ic pada game
      */
     public int getIcTotal() {

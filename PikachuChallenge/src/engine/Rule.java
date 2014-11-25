@@ -24,11 +24,11 @@ public class Rule {
 
     private Elements[][] dungeon; //atribut array untuk menentukan posisi objek
     private int levelStatus; //atribut untuk menentukan level pada game
-    private Character character; //atribut untuk menampilkan chip
-    private int totalIC; //atribut untuk menentukan jumlah chip pada game
-    private boolean winStatus; //atribut untuk menentukan status menang/kalah
+    public Character character; //atribut untuk menampilkan chip
+    public int totalIC; //atribut untuk menentukan jumlah chip pada game
+    public boolean winStatus; //atribut untuk menentukan status menang/kalah
     private Floor floor, waterFloor, fireFloor; //atribut lantai pada game
-    private ItemLists list; //atribut list barang
+    public ItemLists list; //atribut list barang
     private String specialFloor; //atribut untuk menampilkan fire floor/water floor
 
     /**
@@ -170,7 +170,7 @@ public class Rule {
                             temp = "fire";
                         } else {
                             character.setDeadStatus(true);
-                            System.out.println("YOU LOSE");
+//                            System.out.println("YOU LOSE");
                         }
                         break;
                     case "water":
@@ -178,11 +178,11 @@ public class Rule {
                             temp = "water";
                         } else {
                             character.setDeadStatus(true);
-                            System.out.println("YOU LOSE");
+//                            System.out.println("YOU LOSE");
                         }
                         break;
                     case "ic":
-                        totalIC--;
+                        this.totalIC--;
                         break;
                     case "finish":
                         winStatus = true;
