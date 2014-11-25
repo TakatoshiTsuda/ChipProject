@@ -12,7 +12,7 @@ import graphics.*;
  *
  * @author Adam Hafidz F
  */
-public abstract class levelBase {
+public abstract class LevelBase {
 
     //use one object for every type to reduce memory usage!
     //create one and use it over and over
@@ -25,7 +25,7 @@ public abstract class levelBase {
     /**
      * Konstruktor untuk inisialisasi semua atribut
      */
-    public levelBase() {
+    public LevelBase() {
         ele = new Elements[11][11]; //ukuran array elemen 2 dimensi pada game
 //        this.floor = new Floor(); //membuat objek lantai/tile
 //        this.fire = new FireFloor(); //membuat objek lantai api

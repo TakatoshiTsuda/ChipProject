@@ -54,7 +54,8 @@ public class Rule {
      * @param level level pada game yang akan dimainkan
      * @param ic jumlah IC pada level
      */
-    public void LoadLevel(Elements[][] level, int ic) {
+    
+    public void loadLevel(Elements[][] level, int ic) {
         this.dungeon = level;
         dungeon[1][1] = character;
         totalIC = ic;
@@ -91,8 +92,13 @@ public class Rule {
                 break;
         }
         if (character.isDeadStatus() != true && winStatus != true) {
+<<<<<<< HEAD
             CheckNextBlock(nextX, nextY, x, y);
 //            character.walk(dir);
+=======
+            checkNextBlock(nextY, nextX, y, x);
+            character.walk(dir);
+>>>>>>> origin/master
         }
         System.out.println("X= "+x);
         System.out.println("Y= "+y);
@@ -100,6 +106,7 @@ public class Rule {
 
     /**
      * Method untuk
+     * 
      *
      * @return
      */
@@ -114,6 +121,11 @@ public class Rule {
         return text;
     }
 
+    /**
+     * 
+     * @return 
+     */
+    
     public Image[][] getImages() {
         Image[][] i = new Image[11][11];
         for (int j = 0; j < 11; j++) {
@@ -151,7 +163,11 @@ public class Rule {
      * @param oldY nilai y lama
      * @param oldX nilai x lama
      */
+<<<<<<< HEAD
     private void CheckNextBlock(int x, int y, int oldX, int oldY) {
+=======
+    private void checkNextBlock(int y, int x, int oldY, int oldX) {
+>>>>>>> origin/master
         String temp = "";
         Point pos = new Point(x, y);
         if (dungeon[y][x].getType().equals("wall") != true) {

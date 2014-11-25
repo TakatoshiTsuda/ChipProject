@@ -18,7 +18,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import level.level1;
+import level.Level1;
 
 /**
  *
@@ -29,7 +29,7 @@ public class PikaPanel extends JPanel implements KeyListener {
     private LoadImage load;
     private Rule rule;
     private int dir = 6;
-    private level1 level;
+    private Level1 level;
     Image pika;
 
     public PikaPanel() {
@@ -37,10 +37,10 @@ public class PikaPanel extends JPanel implements KeyListener {
         this.pika=load.loadImageData("img//pika.png");
         setPreferredSize(new Dimension(720, 560));
         addKeyListener(this);
-        level = new level1();
+        level = new Level1();
         level.createLevel();
         rule = new Rule();
-        rule.LoadLevel(level.getLevel(), level.getIcTotal());
+        rule.loadLevel(level.getLevel(), level.getIcTotal());
 //        testGameField.setText(rule.toString());
     }
 
