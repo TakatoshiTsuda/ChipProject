@@ -8,7 +8,7 @@ package gui;
 import engine.Rule;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import level.level1;
+import level.Level1;
 
 /**
  * Kelas untuk merepresentasikan GUI dari game Pikachu Challenge
@@ -32,9 +32,9 @@ public class PikaChallengeGUI extends javax.swing.JFrame {
      */
     private void load() {
         rule = new Rule();
-        level1 level = new level1(); //membuat objek level 1
+        Level1 level = new Level1(); //membuat objek level 1
         level.createLevel(); //objek level 1 memanggil method untuk membuat level
-        rule.LoadLevel(level.getLevel(), level.getIcTotal());
+        rule.loadLevel(level.getLevel(), level.getIcTotal());
         jScrollPane1.setAutoscrolls(false);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);

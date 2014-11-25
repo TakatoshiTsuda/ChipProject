@@ -23,7 +23,7 @@ import java.awt.Point;
  *
  * @author Adam Hafidz F
  */
-public class level1 extends levelBase {
+public class Level1 extends LevelBase {
 
     /**
      * Override method createLevel dari super class Method untuk membuat level
