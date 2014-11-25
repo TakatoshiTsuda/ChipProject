@@ -27,7 +27,7 @@ public class LoadImage {
      * @return gambar yang telah di-load
      */
     public Image loadImageData(String imgFileName) {
-        URL imgUrl = getClass().getClassLoader().getResource(imgFileName);
+        URL imgUrl = LoadImage.class.getClassLoader().getResource(imgFileName);
         if (imgUrl == null) {
             System.out.println("Couldn't find file: " + imgFileName);
         } else {
