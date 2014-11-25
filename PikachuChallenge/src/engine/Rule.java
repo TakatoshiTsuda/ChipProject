@@ -68,7 +68,6 @@ public class Rule {
     public void walk(int code) {
         int x = (int) character.getXPos();
         int y = (int) character.getYPos();
-        Point pos;
         int nextX = x;
         int nextY = y;
         String dir = "";
@@ -90,16 +89,17 @@ public class Rule {
                 dir = "down";
                 break;
         }
+        character.setDirection(dir);
         if (character.isDeadStatus() != true && winStatus != true) {
             checkNextBlock(nextX, nextY, x, y);
         }
     }
 
     /**
-     * Method untuk
+     * Method untuk text mode
+     * Testing purposes 
      *
-     *
-     * @return
+     * @return text mode dari game
      */
     public String toString() {
         String text = "";

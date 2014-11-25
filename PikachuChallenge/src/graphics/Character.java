@@ -35,11 +35,11 @@ public class Character extends Elements {
         type = "character";
         this.direction = "right";
         deadStatus = false;
-        imgData = img.loadImageData("img//front.png");
-        this.charUp = ("img//back.png");
-        this.charDown = ("img//front.png");
-        this.charLeft = ("img//left.png");
-        this.charRight = ("img//right.png");
+        imgData = img.loadImageData("front.png");
+        this.charUp = ("back.png");
+        this.charDown = ("front.png");
+        this.charLeft = ("left.png");
+        this.charRight = ("right.png");
     }
 
     /**
@@ -72,7 +72,6 @@ public class Character extends Elements {
      */
     public String setDirection(String direct) {
         String res = "";
-
         switch (direct) {
             case "left":
                 res = "left";
@@ -83,6 +82,7 @@ public class Character extends Elements {
             case "down":
                 res = "down";
         }
+        loadImage(direct);
         return res;
     }
 

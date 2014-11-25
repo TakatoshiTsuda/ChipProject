@@ -20,7 +20,7 @@ public class WaterFloor extends Floor{
      */
     public WaterFloor()
     {
-        imgData=img.loadImageData("img//air.png");
+        imgData=img.loadImageData("air.png");
 //        test='A';
         type="water";
     }

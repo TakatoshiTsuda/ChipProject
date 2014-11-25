@@ -17,7 +17,7 @@ public class FireFloor extends Floor
      */
     public FireFloor()
     {
-        imgData=img.loadImageData("img//api.png");
+        imgData=img.loadImageData("api.png");
 //        test='W';
         type="fire";
     }

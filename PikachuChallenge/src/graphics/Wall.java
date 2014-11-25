@@ -18,7 +18,7 @@ public class Wall extends Floor {
      * Konstruktor untuk menentukan wall pada floor
      */
     public Wall() {
-        imgData=img.loadImageData("img//batu.png");
+        imgData=img.loadImageData("batu.png");
 //        test = 'H';
         type = "wall";
     }
